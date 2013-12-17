@@ -136,6 +136,7 @@ rm -rf /etc/xl2tpd/xl2tpd.conf
 touch /etc/xl2tpd/xl2tpd.conf
 cat >>/etc/xl2tpd/xl2tpd.conf<<EOF
 [global]
+listen-addr = $vpsip
 ipsec saref = yes
 [lns default]
 ip range = $iprange.2-$iprange.254
@@ -153,6 +154,7 @@ cat >>/etc/ppp/options.xl2tpd<<EOF
 require-mschap-v2
 ms-dns 8.8.8.8
 ms-dns 8.8.4.4
+noccp
 asyncmap 0
 auth
 crtscts
