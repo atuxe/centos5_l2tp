@@ -77,7 +77,7 @@ config setup
     virtual_private=%v4:10.0.0.0/8,%v4:192.168.0.0/16,%v4:172.16.0.0/12
     oe=off
     protostack=netkey
-    plutostderrlog=/tmp/log.txt
+    plutostderrlog=/var/log/ipsec.log
 
 conn L2TP-PSK-NAT
     rightsubnet=vhost:%priv
@@ -169,6 +169,8 @@ mtu 1410
 mru 1410
 nodefaultroute 
 connect-delay 5000
+logfd 2
+logfile /var/log/l2tpd.log
 EOF
 cat >>/etc/ppp/chap-secrets<<EOF
 lolo l2tpd 1216 *
